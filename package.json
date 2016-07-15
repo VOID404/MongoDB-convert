@@ -1,0 +1,22 @@
+{
+  "name": "converter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "node_modules/.bin/tape tests/*.js",
+    "start": "node app.js"
+  },
+  "author": "Wojciech Nawa",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "JSON": "^1.0.0",
+    "asyn": "0.0.1",
+    "async": "^2.0.0",
+    "mongodb": "^2.2.1",
+    "synchronize": "^0.9.15"
+  },
+  "devDependencies": {
+    "tape": "^4.6.0"
+  }
+}
