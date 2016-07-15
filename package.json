@@ -15,9 +15,9 @@
     "type": "git",
     "url": "https://github.com/VOID404/MongoDB-convert"
   },
+  "preferGlobal": true,
   "dependencies": {
     "JSON": "^1.0.0",
-    "asyn": "0.0.1",
     "async": "^2.0.0",
     "mongodb": "^2.2.1",
     "synchronize": "^0.9.15"
