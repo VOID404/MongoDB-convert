@@ -6,7 +6,8 @@ const iterate = require('./iterate');
 const json = require('JSON');
 const async = require('async');
 const sync = require('synchronize');
-const config = require('config')
+const config = require('config');
+const dbp = require('./databaseFromToParser');
 
 const fromUrl = config.sourceUrl;
 var urlsLeft = fromUrl.length;
@@ -65,8 +66,8 @@ MongoClient.connect(url, function(err, db) {
         let items = sync.await(collections.toArray(sync.defer()))
         iterate(items,(i,y)=>{
           let collectionName = y.name;
-          let tmp = nameConvert.exec(collectionName+'|'+databaseName)
-          out.push({from:{database:url+'/'+databaseName, collection:collectionName}, to:{database:url+'/'+tmp[1]+'_'+tmp[2], collection:tmp[4]+'_'+tmp[3]}})
+          let tmp = dbp(collectionName, databaseName)
+          out.push({from:{database:url+'/'+databaseName, collection:collectionName}, to:{database:url+'/'+tmp.database, collection:tmp.collection}})
         })
         if (--tasksLeft==0){
           db.close();
