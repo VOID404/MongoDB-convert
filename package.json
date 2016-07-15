@@ -17,6 +17,7 @@
     "synchronize": "^0.9.15"
   },
   "devDependencies": {
+    "chance": "^1.0.3",
     "tape": "^4.6.0"
   }
 }
