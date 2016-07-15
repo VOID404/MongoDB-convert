@@ -2,6 +2,11 @@
 const test = require('tape');
 const MongoClient = require('mongodb').MongoClient;
 const config = require('../config')
+const tapDiff = require('tap-diff');
+
+test.createStream()
+  .pipe(tapDiff())
+  .pipe(process.stdout);
 
 var urls = config.sourceUrl;
 urls.push(config.targetUrl);

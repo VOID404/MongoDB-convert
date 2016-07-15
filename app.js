@@ -1,12 +1,11 @@
 'use strict'
 const MongoClient = require('mongodb').MongoClient;
 const mongodb = require('mongodb');
-const url = require('url');
 const iterate = require('./iterate');
 const json = require('JSON');
 const async = require('async');
 const sync = require('synchronize');
-const config = require('config');
+const config = require('./config');
 const dbp = require('./databaseFromToParser');
 
 const fromUrl = config.sourceUrl;
@@ -42,22 +41,21 @@ function parseDBurl(url) {
 
 var systemCollection = new RegExp(/^system\.\w+/);
 var out =[];
-var nameConvert = new RegExp(/(hybris)\.(\w+)\.(\w+)\|(\w+)/)
-iterate(fromUrl, (i,url)=>{
-MongoClient.connect(url, function(err, db) {
+for (let i=0, url=fromUrl[i];i<fromUrl.length;i++,url=fromUrl[i]){
+MongoClient.connect(url+'/admin', function(err, db) {
   if (err){console.error(err);}
   console.log('Connected');
-  var admin = db.admin();
+  let admin = db.admin();
   admin.listDatabases((err, res)=>{
-    if (err){console.error(err);};
-    var databases = res['databases'];
-    var tmp = [];
+    if (err){console.error(err);}
+    let databases = res['databases'];
+    let tmp = [];
     databases=databases.filter((o)=>{return o.name!='local'})
     iterate(databases, (i,y)=>{
       tmp[i]=db.db(y['name']);
     });
     databases = tmp;
-    var tasksLeft=0;
+    let tasksLeft=0;
     iterate(databases, (i,y)=>{
       sync.fiber(()=>{
         let databaseName = y.databaseName;
@@ -67,7 +65,7 @@ MongoClient.connect(url, function(err, db) {
         iterate(items,(i,y)=>{
           let collectionName = y.name;
           let tmp = dbp(collectionName, databaseName)
-          out.push({from:{database:url+'/'+databaseName, collection:collectionName}, to:{database:url+'/'+tmp.database, collection:tmp.collection}})
+          out.push({from:{database:url+'/'+databaseName, collection:collectionName}, to:{database:toUrl+'/'+  tmp.database, collection:tmp.collection}})
         })
         if (--tasksLeft==0){
           db.close();
@@ -85,8 +83,8 @@ MongoClient.connect(url, function(err, db) {
                     target.collection(key.to.collection,(err,targetCollection)=>{
                       if(err){console.error(err);process.exit(1);}
                       let sourceStream = sourceCollection.find();
-                      sourceStream.on('data',(data)=>{console.log(data.toString());})
-                      sourceStream.on('close', ()=>{
+                      sourceStream.on('data',(data)=>{targetCollection.insert(data)})
+                      sourceStream.on('end', ()=>{
                         source.close();
                         target.close();
                       })
@@ -102,4 +100,4 @@ MongoClient.connect(url, function(err, db) {
     })
   });
 });
-})
+}

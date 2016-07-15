@@ -5,7 +5,8 @@
   "usage": "test",
   "main": "app.js",
   "scripts": {
-    "test": "node_modules/.bin/tape tests/*.js",
+    "test": "echo TRAVIS TESTS: && node_modules/.bin/tape travis-tests/*.js && echo NON TRAVIS TESTS: && node_modules/.bin/tape non-travis-tests/*.js",
+    "travistest": "node_modules/.bin/tape travis-tests/*.js",
     "start": "node app.js"
   },
   "author": "Wojciech Nawa",
@@ -24,6 +25,7 @@
   "devDependencies": {
     "chance": "^1.0.3",
     "package-json-to-readme": "^1.5.1",
+    "tap-diff": "^0.1.1",
     "tape": "^4.6.0"
   }
 }

@@ -35,6 +35,7 @@ npm test
 
 - [chance](https://github.com/chancejs/chancejs): Chance - Utility library to generate anything random
 - [package-json-to-readme](https://github.com/zeke/package-json-to-readme): Generate a README.md from package.json contents
+- [tap-diff](https://github.com/axross/tap-diff): The most human-friendly TAP reporter
 - [tape](https://github.com/substack/tape): tap-producing test harness for node and browsers
 
 
