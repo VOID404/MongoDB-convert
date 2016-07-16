@@ -2,12 +2,12 @@
   "name": "mongodb-convert",
   "version": "1.0.0",
   "description": "Copies data from all mongodb databases on given servers and upload them to another server.",
-  "usage": "test",
   "main": "app.js",
   "scripts": {
     "test": "echo TRAVIS TESTS: && node_modules/.bin/tape travis-tests/*.js && echo NON TRAVIS TESTS: && node_modules/.bin/tape non-travis-tests/*.js",
     "travistest": "node_modules/.bin/tape travis-tests/*.js",
-    "start": "node app.js"
+    "start": "node app.js",
+    "readme": "rm README.md && node_modules/.bin/readme-generator > README.md"
   },
   "author": "Wojciech Nawa",
   "license": "GPL-3.0",
@@ -24,8 +24,12 @@
   },
   "devDependencies": {
     "chance": "^1.0.3",
-    "package-json-to-readme": "^1.5.1",
+    "readme-generator": "git+https://github.com/VOID404/readme-generator.git",
     "tap-diff": "^0.1.1",
     "tape": "^4.6.0"
+  },
+  "readMeGenerator": {
+    "template": "readmeTemplate.md",
+    "licenseFile": "LICENSE"
   }
 }
