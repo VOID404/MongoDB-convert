@@ -1,5 +1,5 @@
-# mongodb-convert [![Travis branch](https://img.shields.io/travis/VOID404/MongoDB-convert/master.svg?maxAge=2592000&style=flat-square)](https://travis-ci.org/VOID404/MongoDB-convert) [![GitHub issues](https://img.shields.io/github/issues/VOID404/MongoDB-convert.svg?maxAge=2592000&style=flat-square)](https://github.com/VOID404/MongoDB-convert/issues) [![Node version](https://img.shields.io/badge/node-4.4.7-brightgreen.svg?style=flat-square)](https://nodejs.org/en/) [![Mongodb version](https://img.shields.io/badge/mongodb-3.2.7-brightgreen.svg?style=flat-square)](https://www.mongodb.com/download-center?jmp=nav#community) [![license](https://img.shields.io/badge/license-GPU--3.0-brightgreen.svg?style=flat-square)](https://raw.githubusercontent.com/VOID404/MongoDB-convert/master/LICENSE) [![GitHub watchers](https://img.shields.io/github/watchers/VOID404/MongoDB-convert.png?style=social&label=Watch&maxAge=2592000)]() 
-Copies data from all mongodb databases on given servers and upload them to another server.
+# mongodb-convert [![Travis branch](https://img.shields.io/travis/VOID404/MongoDB-convert/master.svg?maxAge=2592000&style=flat-square)](https://travis-ci.org/VOID404/MongoDB-convert) [![GitHub issues](https://img.shields.io/github/issues/VOID404/MongoDB-convert.svg?maxAge=2592000&style=flat-square)](https://github.com/VOID404/MongoDB-convert/issues) [![Node version](https://img.shields.io/badge/node-4.4.7-brightgreen.svg?style=flat-square)](https://nodejs.org/en/) [![Mongodb version](https://img.shields.io/badge/mongodb-3.2.7-brightgreen.svg?style=flat-square)](https://www.mongodb.com/download-center?jmp=nav#community) [![license](https://img.shields.io/badge/license-GPL--3.0-brightgreen.svg?style=flat-square)](https://raw.githubusercontent.com/VOID404/MongoDB-convert/master/LICENSE) [![GitHub watchers](https://img.shields.io/github/watchers/VOID404/MongoDB-convert.png?style=social&label=Watch&maxAge=2592000)]() 
+Copies and transforms collections from all mongodb databases on given servers and upload them to another server.
 
 ## Instalation
 
@@ -10,9 +10,8 @@ npm install -g
 
 # Usage
 
-Congiure it with [config.json](config.json), then launch it and
-it will copy data from all databases from all servers in `sourceUrl` list to `targetUrl` like this:
-from database: `database_name` collection: `collection.name.example` to database: `collection_name` collection: `database_name.example`
+Configure it with [config.json](config.json), then launch it and
+it will copy data from all databases from all servers in `sourceUrl` list to `targetUrl` like this: ![usage graph](nameGraph.png)
 
 ## Dependencies
 

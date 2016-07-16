@@ -10,9 +10,8 @@ npm install -g
 
 # Usage
 
-Congiure it with [config.json](config.json), then launch it and
-it will copy data from all databases from all servers in `sourceUrl` list to `targetUrl` like this:
-from database: `database_name` collection: `collection.name.example` to database: `collection_name` collection: `database_name.example`
+Configure it with [config.json](config.json), then launch it and
+it will copy data from all databases from all servers in `sourceUrl` list to `targetUrl` like this: ![usage graph](nameGraph.png)
 
 {{#if dependencies}}
 ## Dependencies

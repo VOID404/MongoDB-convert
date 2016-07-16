@@ -3,3 +3,4 @@ node_modules/*
 *_ignore.*
 .git.bfg-report
 *.log
+*_private.*
