@@ -30,6 +30,14 @@
   },
   "readMeGenerator": {
     "template": "readmeTemplate.md",
-    "licenseFile": "LICENSE"
+    "licenseFile": "LICENSE",
+    "shields": {
+      "travis": "[![Travis branch](https://img.shields.io/travis/VOID404/MongoDB-convert/master.svg?maxAge=2592000&style=flat-square)](https://travis-ci.org/VOID404/MongoDB-convert)",
+      "github-open-issues": "[![GitHub issues](https://img.shields.io/github/issues/VOID404/MongoDB-convert.svg?maxAge=2592000&style=flat-square)](https://github.com/VOID404/MongoDB-convert/issues)",
+      "node-version": "[![Node version](https://img.shields.io/badge/node-4.4.7-brightgreen.svg?style=flat-square)](https://nodejs.org/en/)",
+      "mongodb-version": "[![Mongodb version](https://img.shields.io/badge/mongodb-3.2.7-brightgreen.svg?style=flat-square)](https://www.mongodb.com/download-center?jmp=nav#community)",
+      "license": "[![license](https://img.shields.io/badge/license-GPU--3.0-brightgreen.svg?style=flat-square)](https://raw.githubusercontent.com/VOID404/MongoDB-convert/master/LICENSE)",
+      "github-watchers": "[![GitHub watchers](https://img.shields.io/github/watchers/VOID404/MongoDB-convert.png?style=social&label=Watch&maxAge=2592000)]()"
+    }
   }
 }

@@ -1,5 +1,4 @@
-# {{name}} [![Build Status](https://travis-ci.org/VOID404/MongoDB-convert.png?branch=master)](https://travis-ci.org/VOID404/MongoDB-convert)
-
+# {{name}} {{#each readMeGenerator.shields}}{{{this}}} {{/each}}
 {{description}}
 
 ## Instalation
