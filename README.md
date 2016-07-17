@@ -22,10 +22,10 @@ it will copy data from all databases from all servers in `sourceUrl` list to `ta
 
 ## Dev Dependencies
 
+- [chai](http://chaijs.com): BDD/TDD assertion library for node.js and the browser. Test framework agnostic.
 - [chance](http://chancejs.com): Chance - Utility library to generate anything random
+- [mocha](https://github.com/mochajs/mocha#readme): simple, flexible, fun test framework
 - [readme-generator](https://github.com/void404/readme-generator#readme): Generates README.md based on handlebars template
-- [tap-diff](https://github.com/axross/tap-diff#readme): The most human-friendly TAP reporter
-- [tape](https://github.com/substack/tape): tap-producing test harness for node and browsers
 
 ## License
 

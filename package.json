@@ -4,8 +4,8 @@
   "description": "Copies and transforms collections from all mongodb databases on given servers and upload them to another server.",
   "main": "app.js",
   "scripts": {
-    "test": "echo TRAVIS TESTS: && node_modules/.bin/tape travis-tests/*.js && echo NON TRAVIS TESTS: && node_modules/.bin/tape non-travis-tests/*.js",
-    "travistest": "node_modules/.bin/tape travis-tests/*.js",
+    "test": "env travis=false node_modules/.bin/mocha",
+    "travistest": "env travis=true node_modules/.bin/mocha ",
     "start": "node app.js",
     "readme": "rm README.md && node_modules/.bin/readme-generator > README.md"
   },
@@ -23,10 +23,10 @@
     "synchronize": "^0.9.15"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
     "chance": "^1.0.3",
-    "readme-generator": "git+https://github.com/VOID404/readme-generator.git",
-    "tap-diff": "^0.1.1",
-    "tape": "^4.6.0"
+    "mocha": "^2.5.3",
+    "readme-generator": "git+https://github.com/VOID404/readme-generator.git"
   },
   "readMeGenerator": {
     "template": "readmeTemplate.md",
