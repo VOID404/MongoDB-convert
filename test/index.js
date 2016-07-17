@@ -1,7 +1,7 @@
 'use strict'
 const assert = require('chai').assert;
-const dbp = require('../databaseFromToParser');
-const config = require('../config');
+const dbp = require('../module').nameParser;
+const config = require('../config.json');
 const MongoClient = require('mongodb').MongoClient;
 
 describe('Config.json',()=>{

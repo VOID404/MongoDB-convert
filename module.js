@@ -1,4 +1,4 @@
-module.exports = function (collectionName, databaseName) {
+module.exports.nameParser = function (collectionName, databaseName) {
   'use strict'
   var out = {};
   var dotI = collectionName.indexOf('.');

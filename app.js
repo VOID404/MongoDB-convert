@@ -1,12 +1,11 @@
 'use strict'
 const MongoClient = require('mongodb').MongoClient;
 const mongodb = require('mongodb');
-const iterate = require('./iterate');
-const json = require('JSON');
+const defs = require('./module');
 const async = require('async');
 const sync = require('synchronize');
 const config = require('./config');
-const dbp = require('./databaseFromToParser');
+const dbp = defs.nameParser;
 
 const fromUrl = config.sourceUrl;
 var urlsLeft = fromUrl.length;
@@ -51,18 +50,18 @@ MongoClient.connect(url+'/admin', function(err, db) {
     let databases = res['databases'];
     let tmp = [];
     databases=databases.filter((o)=>{return o.name!='local'})
-    iterate(databases, (i,y)=>{
+    databases.forEach((y,i)=>{
       tmp[i]=db.db(y['name']);
     });
     databases = tmp;
     let tasksLeft=0;
-    iterate(databases, (i,y)=>{
+    databases.forEach((y,i)=>{
       sync.fiber(()=>{
         let databaseName = y.databaseName;
         let collections = y.listCollections({name:{$not:/^system\.\w+/}});
         tasksLeft++;
         let items = sync.await(collections.toArray(sync.defer()))
-        iterate(items,(i,y)=>{
+        items.forEach((y,i)=>{
           let collectionName = y.name;
           let tmp = dbp(collectionName, databaseName)
           out.push({from:{database:url+'/'+databaseName, collection:collectionName}, to:{database:toUrl+'/'+  tmp.database, collection:tmp.collection}})
