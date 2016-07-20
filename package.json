@@ -16,6 +16,7 @@
     "url": "https://github.com/VOID404/MongoDB-convert"
   },
   "preferGlobal": true,
+  "private": true,
   "dependencies": {
     "JSON": "^1.0.0",
     "async": "^2.0.0",
