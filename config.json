@@ -1,5 +1,9 @@
 {
   "sourceUrl": ["mongodb://localhost:8081", "mongodb://localhost:8082"],
   "targetUrl": "mongodb://localhost:8083",
-  "asyncCollectionsLimit": 10
+  "asyncCollectionsLimit": 10,
+  "test": {
+    "sourceUrl": ["mongodb://localhost:8081", "mongodb://localhost:8082"],
+    "targetUrl": "mongodb://localhost:8083"
+  }
 }
