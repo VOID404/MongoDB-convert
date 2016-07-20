@@ -29,10 +29,10 @@ describe('Database parser',function(){
 })
 
 describe('Database tests', function(){
+  beforeEach(function(){
+    if(process.env.travis=='true'){this.skip()}
+  })
   describe('Connects correctly to', function(){
-    beforeEach(function(){
-      if(process.env.travis=='true'){this.skip()}
-    })
     var urls = config.sourceUrl;
     urls.push(config.targetUrl);
     urls.forEach((val,i)=>{
